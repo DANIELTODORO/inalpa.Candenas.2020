@@ -1,0 +1,12 @@
+﻿El modelo se generó con advertencias o errores.Bejerman.edmxVea la lista de errores para obtener más detalles. Se deben corregir estos problemas antes de ejecutar la aplicación.
+La carga de los metadatos desde la base de datos tardó 00:00:01.3521199.
+La generación del modelo tardó 00:00:04.8428665.
+El modelo se generó con advertencias o errores.Bejerman.edmxVea la lista de errores para obtener más detalles. Se deben corregir estos problemas antes de ejecutar la aplicación.
+La carga de los metadatos desde la base de datos tardó 00:00:01.1623026.
+La generación del modelo tardó 00:00:04.7957995.
+El modelo se generó con advertencias o errores.Bejerman.edmxVea la lista de errores para obtener más detalles. Se deben corregir estos problemas antes de ejecutar la aplicación.
+La carga de los metadatos desde la base de datos tardó 00:00:01.0274160.
+La generación del modelo tardó 00:00:11.4183373.
+Archivo de modelo generado: Bejerman.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:01.1573457.
+La generación del modelo tardó 00:00:04.6076504.

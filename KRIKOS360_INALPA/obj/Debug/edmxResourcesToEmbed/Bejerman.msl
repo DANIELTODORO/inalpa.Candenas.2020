@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="krikos360StoreContainer" CdmEntityContainer="SBDABEJERMAN">
+    <FunctionImportMapping FunctionImportName="KrikosComprobantesAsoc" FunctionName="krikos360.Store.KrikosComprobantesAsoc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="krikos360.KrikosComprobantesAsoc_Result">
+          <ScalarProperty Name="spvtco_TipoFijo" ColumnName="spvtco_TipoFijo" />
+          <ScalarProperty Name="spv_CodPvt" ColumnName="spv_CodPvt" />
+          <ScalarProperty Name="spv_Nro" ColumnName="spv_Nro" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
