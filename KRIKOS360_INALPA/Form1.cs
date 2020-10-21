@@ -12,76 +12,37 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using SB.NET.eFlex.SDKLib;
-using SB.NET.eFlex.SDKLib.Mappers;
 using SB.NET.eFlex.SDKLib.Comprobantes;
-using SB.Sistemas.eFlexware;
 using SB.NET.eFlex.SDKLib.Tablas;
 
 namespace KRIKOS360_INALPA
 {
-    public partial class Form1 : Form
+    public partial class FrmModulo : Form
     {
         string sResultado = "";
         EFlexSDK_TokenValidacion pToken = null;
-        List<EFlexSDK_ComprobanteVentas> sComprobantes = null;
+        List<EFlexSDK_ComprobanteVentas> sComprobantes;
         DialogResult Resp;
         SBDABEJERMAN oSBDABEJERMAN;
-        public Form1()
+        DataRowView EmpresaOrig;
+        public FrmModulo(EFlexSDK_TokenValidacion _Token, DataRowView _dtEmpresaOrig)
         {
             InitializeComponent();
             DtpDesde.Value = DtpDesde.MinDate;
             DtpHasta.Value = DtpHasta.MinDate;
             oSBDABEJERMAN = SBDABEJERMAN.obtenerinstancia();
-            pToken = new EFlexSDK_TokenValidacion();
+            pToken = _Token;
+            EmpresaOrig = _dtEmpresaOrig;
             Resp = DialogResult.OK;
             try
             {
-                string filejsonEmpOrig = File.ReadAllText(@".\EmpresasOrig.json");
-                // Posicion de DataTable de Parametros DT[0] Nombre de la empresa - [1] Codigo de la Empresa - [2] Puesto de trabajo - [3] Punto de Venta  
-                DataTable dtEmpresaOrig = (DataTable)JsonConvert.DeserializeObject(value: filejsonEmpOrig, type: typeof(DataTable));
-                cbxEmpresasOrig.DataSource = dtEmpresaOrig;
-                cbxEmpresasOrig.DisplayMember = "NomEmpresa";
-            }
-            catch
-            {
-                Resp = DialogResult.Abort;
-                MessageBox.Show("Cotrolar la Ubicación del Archivo de Configuración EmpresasOrig.json");
-            }
-            try
-            {
-                //DatosFlexware datosFlexware = new DatosFlexware();
-                //EmpresaFlex empresaFlex = new EmpresaFlex();
-                //SB.RutinasDeBase.cStrConnection conex = new SB.RutinasDeBase.cStrConnection();
-                //conex.Server = "LOCALHOST";
-                //conex.PWD = "Sa.2017";
-                //conex.AppName = "sa";
-                //conex.DB = "sbdamode";
-                //conex.UID = "sa";
-                //empresaFlex.Codigo = "MODE";
-                //datosFlexware.Empresa = empresaFlex;
-                //datosFlexware.PuestoTrabajo = "1";
-                //datosFlexware.SucursalCodigo = "";
-                //datosFlexware.StrConex = conex;
-                
-                //var dd = ParamModulo.LeerValor(datosFlexware, "RTOELEC", "URLRENTAS", "", false);
-            }
-            catch
-            {
-                Resp = DialogResult.Abort;
-                MessageBox.Show("No se pudo conectar con el Servidor");
-            }
-            try
-            {
-                 pToken = EFlexSDK_Procesos.ProcesosFlex.IniciarProcesoFlex("CNV", "gp74");
+                EFlexSDK_Procesos.ProcesosFlex.AbrirEmpresaFlex(EmpresaOrig.Row.ItemArray[1].ToString(), EmpresaOrig.Row.ItemArray[2].ToString(), pToken);
+                gbxFiltrosComp.Enabled = true;
+                gbxExportar.Enabled = false;
             }
             catch (EFlexSDK_Exception ex)
             {
-                Resp = DialogResult.Abort;
                 MessageBox.Show(ex.ToString());
-            }
-            if (Resp == DialogResult.Abort)
-            {
-                Application.Exit();
             }
 
         }  
@@ -106,14 +67,30 @@ namespace KRIKOS360_INALPA
                     foreach (EFlexSDK_ComprobanteVentas krikos360_010 in sComprobantes)
                     {
                         List<EFlexSDK_DatAdic> eFlexSDK_DatAdic = new List<EFlexSDK_DatAdic>();
-                        eFlexSDK_DatAdic = krikos360_010.Comprobante_DatosAdicionales;
-                        //EFlexSDK_DatAdic Dscv_GLN = new EFlexSDK_DatAdic();
-                        //Dscv_GLN.Nombre = "Dscv_GLN";
-                        //Dscv_GLN.Valor = "Prueba";
-                        //eFlexSDK_DatAdic.Add(Dscv_GLN);
-
                         csvMemoria.Append(String.Format("{0};", "010")); // Bloque 010
-                        csvMemoria.Append(String.Format("{0};", krikos360_010.Comprobante_Tipo)); // 01001
+                        switch(CbxComprobantes.SelectedItem.ToString())
+                        {
+                            case "FC":
+                                csvMemoria.Append(String.Format("{0};", "001")); // 01001
+                                break;
+                            case "FCC":
+                                csvMemoria.Append(String.Format("{0};", "201")); // 01001
+                                break;
+                            case "NC":
+                                csvMemoria.Append(String.Format("{0};", "003")); // 01001
+                                break;
+                            case "NCC":
+                                csvMemoria.Append(String.Format("{0};", "203")); // 01001
+                                break;
+                            case "ND":
+                                csvMemoria.Append(String.Format("{0};", "002")); // 01001
+                                break;
+                            case "NCD":
+                                csvMemoria.Append(String.Format("{0};", "202")); // 01001
+                                break;
+                        } // FIN 01001
+
+
                         csvMemoria.Append(String.Format("{0};", krikos360_010.Comprobante_Numero).PadLeft(8, '0')); // 01002
                         csvMemoria.Append(String.Format("{0};", krikos360_010.Comprobante_Numero).PadLeft(8, '0')); // 01003
                         csvMemoria.Append(String.Format("{0};", krikos360_010.Comprobante_PtoVenta.PadLeft(5, '0'))); // 01004
@@ -126,6 +103,7 @@ namespace KRIKOS360_INALPA
                         {
                             csvMemoria.Append(String.Format("{0};", "        "));
                         }  // 01006
+
                         csvMemoria.Append(String.Format("{0};", "")); // 01007
                         csvMemoria.Append(String.Format("{0};", "")); // 01008
                         csvMemoria.Append(String.Format("{0};", krikos360_010.Comprobante_CondVenta)); //01009
@@ -145,6 +123,7 @@ namespace KRIKOS360_INALPA
                         {
                             csvMemoria.Append(String.Format("{0};", "        "));
                         } // Hasta 01011
+
                         csvMemoria.Append(String.Format("{0};", "")); //01012
                         csvMemoria.Append(String.Format("{0};", "")); //01013
                         csvMemoria.Append(String.Format("{0};", "")); //01014
@@ -157,6 +136,7 @@ namespace KRIKOS360_INALPA
                         csvMemoria.Append(String.Format("{0};", "")); //01021
                         csvMemoria.Append(String.Format("{0};", "")); //01022
                         csvMemoria.Append(String.Format("{0};", "")); //01023
+
                         if (krikos360_010.Comprobante_FechaEntrega != null) // Desde 01024
                         {
                             csvMemoria.Append(String.Format("{0};", krikos360_010.Comprobante_FechaEntrega.Value.ToString("yyyyMMdd", CultureInfo.InvariantCulture)));
@@ -296,7 +276,6 @@ namespace KRIKOS360_INALPA
                         csvMemoria.Append(String.Format("{0};", ""));
                         csvMemoria.Append(String.Format("{0}", ""));
                         csvMemoria.AppendLine();
-
                        
                         double TotalIva = 0;
                         foreach (EFlexSDK_ItemVentas krikos360_Items in (krikos360_010.Comprobante_Items))
@@ -335,8 +314,6 @@ namespace KRIKOS360_INALPA
                         csvMemoria.Append(String.Format("{0};", ""));
                         csvMemoria.Append(String.Format("{0}", ""));
                         csvMemoria.AppendLine();
-
-
 
                         foreach (EFlexSDK_ItemVentas krikos360_Items in (krikos360_010.Comprobante_Items))
                         {
@@ -431,32 +408,10 @@ namespace KRIKOS360_INALPA
             Application.Exit();
         }
 
-        private void FrmIngresar_Click(object sender, EventArgs e)
-        {  
-            DataRowView EmpresaOrig = (DataRowView)cbxEmpresasOrig.SelectedItem;        
-            try
-            {
-                EFlexSDK_Procesos.ProcesosFlex.AbrirEmpresaFlex(EmpresaOrig.Row.ItemArray[1].ToString(), EmpresaOrig.Row.ItemArray[2].ToString(), pToken);
-                gbxAbrirEmpresa.Enabled = false;
-                gbxFiltrosComp.Enabled = true;
-                gbxExportar.Enabled = false;
-            }
-            catch (EFlexSDK_Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-                      
-        }
-        private void FrmSalir_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+
         private void btnCancelarEmp_Click(object sender, EventArgs e)
         {
             limpiarFiltros();
-            gbxAbrirEmpresa.Enabled = true;
-            gbxFiltrosComp.Enabled = false;
-            gbxExportar.Enabled = false;
             dgvDatos.DataSource = null;
         }
 
@@ -476,45 +431,44 @@ namespace KRIKOS360_INALPA
             {
                 string sResultado = string.Empty;
                 EFlexSDK_Ventas sVentas = new EFlexSDK_Ventas(pToken);
-                List<EFlexSDK_FiltroComprobantes> MisFiltros = new List<EFlexSDK_FiltroComprobantes>();
-                if (!(DtpDesde.Value == DtpDesde.MinDate && DtpHasta.Value == DtpHasta.MinDate))
+                sComprobantes = new List<EFlexSDK_ComprobanteVentas>();
+                List<EFlexSDK_FiltroComprobantes> MisFiltros = new List<EFlexSDK_FiltroComprobantes>
                 {
-                    if (!(CbxComprobantes.SelectedItem != null))
+                    new EFlexSDK_FiltroComprobantes()
                     {
-                        MisFiltros.Add(new EFlexSDK_FiltroComprobantes()
-                        {
-                            Operacion = string.Empty,
-                            Campo = "Comprobante_Tipo",
-                            Accion = "IGUAL",
-                            Valor = "FC"
-                        });
-                    }
-                    if (!(DtpDesde.Value == DtpDesde.MinDate))
-                    {
-                        MisFiltros.Add(new EFlexSDK_FiltroComprobantes()
-                        {
-                            Operacion = "Y",
-                            Campo = "Comprobante_FechaContabilizacion",
-                            Accion = "MAYOR O IGUAL",
+                        Operacion = "",
+                        Campo = "Comprobante_FechaEmision",
+                        Accion = "MAYOR O IGUAL",
+                        Valor =  "2020-01-01"
+                    }       
+                };
 
-                            Valor = Convert.ToDateTime(DtpDesde.Value.ToString(), System.Globalization.CultureInfo.InvariantCulture)
-                        });
-                    }
-                    if (!(DtpHasta.Value == DtpHasta.MinDate))
-                    {
-                        MisFiltros.Add(new EFlexSDK_FiltroComprobantes()
-                        {
-                            Operacion = "Y",
-                            Campo = "Comprobante_FechaContabilizacion",
-                            Accion = "MENOR O IGUAL",
-                            Valor = Convert.ToDateTime(DtpHasta.Value.ToString(), System.Globalization.CultureInfo.InvariantCulture)
-                        });
-                    }
+                if (CbxComprobantes.SelectedItem != null)
+                {
+                    EFlexSDK_FiltroComprobantes eFlexSDK_Filtro_Comp = new EFlexSDK_FiltroComprobantes();
+                    eFlexSDK_Filtro_Comp.Operacion = "Y";
+                    eFlexSDK_Filtro_Comp.Campo = "Comprobante_Tipo";
+                    eFlexSDK_Filtro_Comp.Accion = "IGUAL";
+                    eFlexSDK_Filtro_Comp.Valor = CbxComprobantes.SelectedItem.ToString();
+                    eFlexSDK_Filtro_Comp.Enlazada = false;
+                    MisFiltros.Add(eFlexSDK_Filtro_Comp);
+                }
+              
+                EFlexSDK_FiltroComprobantes eFlexSDK_Filtro_Emp = new EFlexSDK_FiltroComprobantes();
+                eFlexSDK_Filtro_Emp.Operacion = "Y";
+                eFlexSDK_Filtro_Emp.Campo = "Cliente_Codigo";
+                eFlexSDK_Filtro_Emp.Accion = "IGUAL";
+                if(rbWalmart.Checked)
+                {
+                    eFlexSDK_Filtro_Emp.Valor = "000466";
                 }
                 else
                 {
-                    return sResultado = "No Aplicaron los Filtros Desde / Hasta (FECHA)";
+                    eFlexSDK_Filtro_Emp.Valor = "000468";
                 }
+
+                MisFiltros.Add(eFlexSDK_Filtro_Emp);
+                               
                 sComprobantes = sVentas.ListarComprobantes(MisFiltros, pToken);
 
                 if (sComprobantes == null)
@@ -526,11 +480,13 @@ namespace KRIKOS360_INALPA
                     int i;
                     dgvDatos.DataSource = null;
                     dgvDatos.DataSource = sComprobantes;
+
                     for (i = 9; i < dgvDatos.ColumnCount; i++)
                     {
                         dgvDatos.Columns[i].Visible = false;
                     }
                     limpiarFiltros();
+
                     if (dgvDatos.Rows.Count > 0)
                     {
                         gbxExportar.Enabled = true;
@@ -550,6 +506,30 @@ namespace KRIKOS360_INALPA
             rbWalmart.Checked = true;
             DtpDesde.Value = DtpDesde.MinDate;
             DtpHasta.Value = DtpHasta.MinDate;
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxEmpresasOrig_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+                DialogResult = DialogResult.Cancel;
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            limpiarFiltros();
+            gbxFiltrosComp.Enabled = true;
+            gbxExportar.Enabled = false;
+            dgvDatos.DataSource = null;
+            sComprobantes = null;
         }
     }
 }

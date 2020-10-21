@@ -1,6 +1,6 @@
 ﻿namespace KRIKOS360_INALPA
 {
-    partial class Form1
+    partial class FrmModulo
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,21 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnGenerar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.rbWalmart = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.gbxAbrirEmpresa = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.FrmSalir = new System.Windows.Forms.Button();
-            this.FrmIngresar = new System.Windows.Forms.Button();
-            this.cbxEmpresasOrig = new System.Windows.Forms.ComboBox();
             this.gbxExportar = new System.Windows.Forms.GroupBox();
+            this.BtnCancelar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.BarraProceso = new System.Windows.Forms.ProgressBar();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
@@ -57,7 +52,6 @@
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.gbxAbrirEmpresa.SuspendLayout();
             this.gbxExportar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.gbxFiltrosComp.SuspendLayout();
@@ -68,26 +62,13 @@
             this.btnGenerar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnGenerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerar.ForeColor = System.Drawing.Color.White;
-            this.btnGenerar.Location = new System.Drawing.Point(209, 39);
+            this.btnGenerar.Location = new System.Drawing.Point(209, 19);
             this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(75, 23);
+            this.btnGenerar.Size = new System.Drawing.Size(75, 43);
             this.btnGenerar.TabIndex = 0;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = false;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(603, 39);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 3;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // saveFileDialog1
             // 
@@ -115,64 +96,12 @@
             this.radioButton2.Text = "Super Día% ";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // gbxAbrirEmpresa
-            // 
-            this.gbxAbrirEmpresa.Controls.Add(this.label7);
-            this.gbxAbrirEmpresa.Controls.Add(this.FrmSalir);
-            this.gbxAbrirEmpresa.Controls.Add(this.FrmIngresar);
-            this.gbxAbrirEmpresa.Controls.Add(this.cbxEmpresasOrig);
-            this.gbxAbrirEmpresa.Location = new System.Drawing.Point(12, 12);
-            this.gbxAbrirEmpresa.Name = "gbxAbrirEmpresa";
-            this.gbxAbrirEmpresa.Size = new System.Drawing.Size(684, 63);
-            this.gbxAbrirEmpresa.TabIndex = 14;
-            this.gbxAbrirEmpresa.TabStop = false;
-            this.gbxAbrirEmpresa.Text = "Empresa Origen";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 26);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Empresa:";
-            // 
-            // FrmSalir
-            // 
-            this.FrmSalir.BackColor = System.Drawing.Color.LightGray;
-            this.FrmSalir.Location = new System.Drawing.Point(403, 22);
-            this.FrmSalir.Name = "FrmSalir";
-            this.FrmSalir.Size = new System.Drawing.Size(64, 21);
-            this.FrmSalir.TabIndex = 2;
-            this.FrmSalir.Text = "Salir";
-            this.FrmSalir.UseVisualStyleBackColor = false;
-            this.FrmSalir.Click += new System.EventHandler(this.FrmSalir_Click);
-            // 
-            // FrmIngresar
-            // 
-            this.FrmIngresar.BackColor = System.Drawing.Color.LightGray;
-            this.FrmIngresar.Location = new System.Drawing.Point(333, 22);
-            this.FrmIngresar.Name = "FrmIngresar";
-            this.FrmIngresar.Size = new System.Drawing.Size(64, 21);
-            this.FrmIngresar.TabIndex = 1;
-            this.FrmIngresar.Text = "Ingresar";
-            this.FrmIngresar.UseVisualStyleBackColor = false;
-            this.FrmIngresar.Click += new System.EventHandler(this.FrmIngresar_Click);
-            // 
-            // cbxEmpresasOrig
-            // 
-            this.cbxEmpresasOrig.FormattingEnabled = true;
-            this.cbxEmpresasOrig.Location = new System.Drawing.Point(81, 23);
-            this.cbxEmpresasOrig.Name = "cbxEmpresasOrig";
-            this.cbxEmpresasOrig.Size = new System.Drawing.Size(246, 21);
-            this.cbxEmpresasOrig.TabIndex = 0;
-            // 
             // gbxExportar
             // 
+            this.gbxExportar.Controls.Add(this.BtnCancelar);
             this.gbxExportar.Controls.Add(this.button1);
             this.gbxExportar.Controls.Add(this.BarraProceso);
             this.gbxExportar.Controls.Add(this.btnGenerar);
-            this.gbxExportar.Controls.Add(this.btnSalir);
             this.gbxExportar.Location = new System.Drawing.Point(12, 366);
             this.gbxExportar.Name = "gbxExportar";
             this.gbxExportar.Size = new System.Drawing.Size(684, 70);
@@ -180,17 +109,31 @@
             this.gbxExportar.TabStop = false;
             this.gbxExportar.Text = "Exportar:";
             // 
+            // BtnCancelar
+            // 
+            this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCancelar.ForeColor = System.Drawing.Color.White;
+            this.BtnCancelar.Location = new System.Drawing.Point(290, 19);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(75, 43);
+            this.BtnCancelar.TabIndex = 16;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(290, 39);
+            this.button1.Location = new System.Drawing.Point(371, 19);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 43);
             this.button1.TabIndex = 15;
             this.button1.Text = "Salir";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BarraProceso
             // 
@@ -201,41 +144,41 @@
             // 
             // dgvDatos
             // 
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDatos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDatos.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDatos.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDatos.EnableHeadersVisualStyles = false;
             this.dgvDatos.GridColor = System.Drawing.Color.Black;
-            this.dgvDatos.Location = new System.Drawing.Point(12, 156);
+            this.dgvDatos.Location = new System.Drawing.Point(12, 86);
             this.dgvDatos.Name = "dgvDatos";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvDatos.Size = new System.Drawing.Size(684, 204);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvDatos.Size = new System.Drawing.Size(684, 274);
             this.dgvDatos.TabIndex = 11;
             // 
             // gbxFiltrosComp
@@ -252,7 +195,7 @@
             this.gbxFiltrosComp.Controls.Add(this.btnFiltrar);
             this.gbxFiltrosComp.Controls.Add(this.label4);
             this.gbxFiltrosComp.Controls.Add(this.label5);
-            this.gbxFiltrosComp.Location = new System.Drawing.Point(12, 82);
+            this.gbxFiltrosComp.Location = new System.Drawing.Point(12, 12);
             this.gbxFiltrosComp.Name = "gbxFiltrosComp";
             this.gbxFiltrosComp.Size = new System.Drawing.Size(684, 68);
             this.gbxFiltrosComp.TabIndex = 12;
@@ -262,6 +205,10 @@
             // CbxComprobantes
             // 
             this.CbxComprobantes.FormattingEnabled = true;
+            this.CbxComprobantes.Items.AddRange(new object[] {
+            "FC",
+            "FA",
+            "FCC"});
             this.CbxComprobantes.Location = new System.Drawing.Point(333, 39);
             this.CbxComprobantes.Name = "CbxComprobantes";
             this.CbxComprobantes.Size = new System.Drawing.Size(171, 21);
@@ -300,7 +247,7 @@
             this.btnCancelarEmp.Name = "btnCancelarEmp";
             this.btnCancelarEmp.Size = new System.Drawing.Size(64, 23);
             this.btnCancelarEmp.TabIndex = 10;
-            this.btnCancelarEmp.Text = "Cancelar";
+            this.btnCancelarEmp.Text = "Limpiar";
             this.btnCancelarEmp.UseVisualStyleBackColor = false;
             this.btnCancelarEmp.Click += new System.EventHandler(this.btnCancelarEmp_Click);
             // 
@@ -308,7 +255,7 @@
             // 
             this.DtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtpHasta.Location = new System.Drawing.Point(215, 39);
-            this.DtpHasta.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.DtpHasta.MinDate = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
             this.DtpHasta.Name = "DtpHasta";
             this.DtpHasta.Size = new System.Drawing.Size(100, 20);
             this.DtpHasta.TabIndex = 4;
@@ -351,23 +298,20 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Desde:";
             // 
-            // Form1
+            // FrmModulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(708, 440);
-            this.Controls.Add(this.gbxAbrirEmpresa);
             this.Controls.Add(this.gbxExportar);
             this.Controls.Add(this.dgvDatos);
             this.Controls.Add(this.gbxFiltrosComp);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "FrmModulo";
             this.Text = "Krikos360 - Inalpa";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
-            this.gbxAbrirEmpresa.ResumeLayout(false);
-            this.gbxAbrirEmpresa.PerformLayout();
             this.gbxExportar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.gbxFiltrosComp.ResumeLayout(false);
@@ -379,15 +323,9 @@
         #endregion
 
         private System.Windows.Forms.Button btnGenerar;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.RadioButton rbWalmart;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.GroupBox gbxAbrirEmpresa;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button FrmSalir;
-        private System.Windows.Forms.Button FrmIngresar;
-        private System.Windows.Forms.ComboBox cbxEmpresasOrig;
         private System.Windows.Forms.GroupBox gbxExportar;
         private System.Windows.Forms.ProgressBar BarraProceso;
         private System.Windows.Forms.DataGridView dgvDatos;
@@ -403,6 +341,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnCancelar;
     }
 }
 

@@ -47,21 +47,32 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SB.NET.eFlex.SDKLib">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.eFlex.SDKLib.dll</HintPath>
+    <Reference Include="SB.NET.eFlex.SDKLib, Version=2.0.2019.1212, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.eFlex.SDKLib.dll</HintPath>
     </Reference>
-    <Reference Include="SB.NET.eFlex.SDKLib.Comprobantes">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.eFlex.SDKLib.Comprobantes.dll</HintPath>
+    <Reference Include="SB.NET.eFlex.SDKLib.Comprobantes, Version=2.0.2019.1212, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.eFlex.SDKLib.Comprobantes.dll</HintPath>
     </Reference>
-    <Reference Include="SB.NET.eFlex.SDKLib.Tablas">
+    <Reference Include="SB.NET.eFlex.SDKLib.Stock, Version=2.0.2019.1212, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.eFlex.SDKLib.Stock.dll</HintPath>
+    </Reference>
+    <Reference Include="SB.NET.eFlex.SDKLib.Tablas, Version=2.0.2019.1212, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.eFlex.SDKLib.Tablas.dll</HintPath>
     </Reference>
-    <Reference Include="SB.NET.RutinasBase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Reference Include="SB.NET.Sistemas.eFlex, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SB.NET.RutinasBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.Sistemas.eFlex.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.RutinasBase.dll</HintPath>
     </Reference>
-    <Reference Include="SB.NET.SysInfo">
+    <Reference Include="SB.NET.Sistemas.AGral, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.Sistemas.AGral.dll</HintPath>
+    </Reference>
+    <Reference Include="SB.NET.SysInfo, Version=1.1.4.1, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.SysInfo.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -100,6 +111,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="KrikosComprobantesAsoc_Result.cs">
       <DependentUpon>Bejerman.tt</DependentUpon>
     </Compile>
@@ -108,6 +125,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
