@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmModulo));
             this.btnGenerar = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.rbWalmart = new System.Windows.Forms.RadioButton();
@@ -242,7 +243,9 @@
             // 
             // btnCancelarEmp
             // 
-            this.btnCancelarEmp.BackColor = System.Drawing.Color.LightGray;
+            this.btnCancelarEmp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnCancelarEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarEmp.ForeColor = System.Drawing.Color.White;
             this.btnCancelarEmp.Location = new System.Drawing.Point(614, 39);
             this.btnCancelarEmp.Name = "btnCancelarEmp";
             this.btnCancelarEmp.Size = new System.Drawing.Size(64, 23);
@@ -271,7 +274,9 @@
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.BackColor = System.Drawing.Color.LightGray;
+            this.btnFiltrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltrar.ForeColor = System.Drawing.Color.White;
             this.btnFiltrar.Location = new System.Drawing.Point(614, 13);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(64, 23);
@@ -307,6 +312,7 @@
             this.Controls.Add(this.gbxExportar);
             this.Controls.Add(this.dgvDatos);
             this.Controls.Add(this.gbxFiltrosComp);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmModulo";
