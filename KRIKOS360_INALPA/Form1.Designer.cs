@@ -40,7 +40,6 @@
             this.gbxExportar = new System.Windows.Forms.GroupBox();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.BarraProceso = new System.Windows.Forms.ProgressBar();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.gbxFiltrosComp = new System.Windows.Forms.GroupBox();
             this.CbxComprobantes = new System.Windows.Forms.ComboBox();
@@ -48,11 +47,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnCancelarEmp = new System.Windows.Forms.Button();
-            this.DtpHasta = new System.Windows.Forms.DateTimePicker();
             this.DtpDesde = new System.Windows.Forms.DateTimePicker();
             this.btnFiltrar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.gbxExportar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.gbxFiltrosComp.SuspendLayout();
@@ -63,7 +59,7 @@
             this.btnGenerar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnGenerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerar.ForeColor = System.Drawing.Color.White;
-            this.btnGenerar.Location = new System.Drawing.Point(209, 19);
+            this.btnGenerar.Location = new System.Drawing.Point(423, 19);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(75, 43);
             this.btnGenerar.TabIndex = 0;
@@ -79,7 +75,7 @@
             // 
             this.rbWalmart.AutoSize = true;
             this.rbWalmart.Checked = true;
-            this.rbWalmart.Location = new System.Drawing.Point(523, 21);
+            this.rbWalmart.Location = new System.Drawing.Point(402, 40);
             this.rbWalmart.Name = "rbWalmart";
             this.rbWalmart.Size = new System.Drawing.Size(64, 17);
             this.rbWalmart.TabIndex = 6;
@@ -90,7 +86,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(523, 42);
+            this.radioButton2.Location = new System.Drawing.Point(481, 40);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(85, 17);
             this.radioButton2.TabIndex = 7;
@@ -101,7 +97,6 @@
             // 
             this.gbxExportar.Controls.Add(this.BtnCancelar);
             this.gbxExportar.Controls.Add(this.button1);
-            this.gbxExportar.Controls.Add(this.BarraProceso);
             this.gbxExportar.Controls.Add(this.btnGenerar);
             this.gbxExportar.Location = new System.Drawing.Point(12, 366);
             this.gbxExportar.Name = "gbxExportar";
@@ -115,7 +110,7 @@
             this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancelar.ForeColor = System.Drawing.Color.White;
-            this.BtnCancelar.Location = new System.Drawing.Point(290, 19);
+            this.BtnCancelar.Location = new System.Drawing.Point(504, 19);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(75, 43);
             this.BtnCancelar.TabIndex = 16;
@@ -128,20 +123,13 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(371, 19);
+            this.button1.Location = new System.Drawing.Point(585, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 43);
             this.button1.TabIndex = 15;
             this.button1.Text = "Salir";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // BarraProceso
-            // 
-            this.BarraProceso.Location = new System.Drawing.Point(6, 39);
-            this.BarraProceso.Name = "BarraProceso";
-            this.BarraProceso.Size = new System.Drawing.Size(197, 23);
-            this.BarraProceso.TabIndex = 14;
             // 
             // dgvDatos
             // 
@@ -191,11 +179,8 @@
             this.gbxFiltrosComp.Controls.Add(this.rbWalmart);
             this.gbxFiltrosComp.Controls.Add(this.btnCancelarEmp);
             this.gbxFiltrosComp.Controls.Add(this.radioButton2);
-            this.gbxFiltrosComp.Controls.Add(this.DtpHasta);
             this.gbxFiltrosComp.Controls.Add(this.DtpDesde);
             this.gbxFiltrosComp.Controls.Add(this.btnFiltrar);
-            this.gbxFiltrosComp.Controls.Add(this.label4);
-            this.gbxFiltrosComp.Controls.Add(this.label5);
             this.gbxFiltrosComp.Location = new System.Drawing.Point(12, 12);
             this.gbxFiltrosComp.Name = "gbxFiltrosComp";
             this.gbxFiltrosComp.Size = new System.Drawing.Size(684, 68);
@@ -210,7 +195,7 @@
             "FC",
             "FA",
             "FCC"});
-            this.CbxComprobantes.Location = new System.Drawing.Point(333, 39);
+            this.CbxComprobantes.Location = new System.Drawing.Point(209, 38);
             this.CbxComprobantes.Name = "CbxComprobantes";
             this.CbxComprobantes.Size = new System.Drawing.Size(171, 21);
             this.CbxComprobantes.TabIndex = 14;
@@ -218,7 +203,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(330, 20);
+            this.label1.Location = new System.Drawing.Point(206, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 13;
@@ -227,7 +212,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(328, 43);
+            this.label2.Location = new System.Drawing.Point(204, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 12;
@@ -254,22 +239,13 @@
             this.btnCancelarEmp.UseVisualStyleBackColor = false;
             this.btnCancelarEmp.Click += new System.EventHandler(this.btnCancelarEmp_Click);
             // 
-            // DtpHasta
-            // 
-            this.DtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpHasta.Location = new System.Drawing.Point(215, 39);
-            this.DtpHasta.MinDate = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
-            this.DtpHasta.Name = "DtpHasta";
-            this.DtpHasta.Size = new System.Drawing.Size(100, 20);
-            this.DtpHasta.TabIndex = 4;
-            // 
             // DtpDesde
             // 
             this.DtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpDesde.Location = new System.Drawing.Point(54, 39);
+            this.DtpDesde.Location = new System.Drawing.Point(12, 38);
             this.DtpDesde.MinDate = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
             this.DtpDesde.Name = "DtpDesde";
-            this.DtpDesde.Size = new System.Drawing.Size(100, 20);
+            this.DtpDesde.Size = new System.Drawing.Size(154, 20);
             this.DtpDesde.TabIndex = 3;
             // 
             // btnFiltrar
@@ -284,24 +260,6 @@
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = false;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(171, 43);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Hasta:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 43);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Desde:";
             // 
             // FrmModulo
             // 
@@ -333,16 +291,12 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.GroupBox gbxExportar;
-        private System.Windows.Forms.ProgressBar BarraProceso;
         private System.Windows.Forms.DataGridView dgvDatos;
         private System.Windows.Forms.GroupBox gbxFiltrosComp;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnCancelarEmp;
-        private System.Windows.Forms.DateTimePicker DtpHasta;
         private System.Windows.Forms.DateTimePicker DtpDesde;
         private System.Windows.Forms.Button btnFiltrar;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox CbxComprobantes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

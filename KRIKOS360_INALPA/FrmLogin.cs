@@ -37,19 +37,16 @@ namespace KRIKOS360_INALPA
                 Resp = DialogResult.Abort;
                 MessageBox.Show("Cotrolar la Ubicación del Archivo de Configuración EmpresasOrig.json");
             }
-
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
         }
 
         private void FrmIngresar_Click(object sender, EventArgs e)
         {
             if (!(string.IsNullOrEmpty(TxbUsuario.Text)))
             {
-
                 try
                 {
                     pToken = EFlexSDK_Procesos.ProcesosFlex.IniciarProcesoFlex(TxbUsuario.Text, TxbContraseña.Text);

@@ -87,7 +87,6 @@
             this.TxbUsuario.Name = "TxbUsuario";
             this.TxbUsuario.Size = new System.Drawing.Size(173, 20);
             this.TxbUsuario.TabIndex = 16;
-            this.TxbUsuario.Text = "ADMIN";
             // 
             // TxbContraseña
             // 

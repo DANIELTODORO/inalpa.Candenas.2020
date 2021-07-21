@@ -49,7 +49,7 @@
     </Reference>
     <Reference Include="SB.NET.eFlex.SDKLib, Version=2.0.2019.1212, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.eFlex.SDKLib.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.eFlex.SDKLib.DLL</HintPath>
     </Reference>
     <Reference Include="SB.NET.eFlex.SDKLib.Comprobantes, Version=2.0.2019.1212, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -57,23 +57,15 @@
     </Reference>
     <Reference Include="SB.NET.eFlex.SDKLib.Stock, Version=2.0.2019.1212, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.eFlex.SDKLib.Stock.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.eFlex.SDKLib.Stock.dll</HintPath>
     </Reference>
     <Reference Include="SB.NET.eFlex.SDKLib.Tablas, Version=2.0.2019.1212, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.eFlex.SDKLib.Tablas.dll</HintPath>
-    </Reference>
-    <Reference Include="SB.NET.RutinasBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.RutinasBase.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.eFlex.SDKLib.Tablas.dll</HintPath>
     </Reference>
     <Reference Include="SB.NET.Sistemas.AGral, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.Sistemas.AGral.dll</HintPath>
-    </Reference>
-    <Reference Include="SB.NET.SysInfo, Version=1.1.4.1, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\SistemasBejermanSQL\EflexWeb\SB.NET.SysInfo.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
