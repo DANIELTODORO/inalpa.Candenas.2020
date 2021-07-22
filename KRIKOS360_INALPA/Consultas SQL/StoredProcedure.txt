@@ -1,0 +1,14 @@
+USE [SBDAINAL]
+GO
+/****** Object:  StoredProcedure [dbo].[KrikosComprobantesAsoc]    Script Date: 21/07/2021 13:54:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+ALTER PROCEDURE [dbo].[KrikosComprobantesAsoc]  @ComprobanteSDK_id int
+AS
+select spvtco_TipoFijo,spv_CodPvt,spv_Nro 
+from SegTiposV 
+where spvscv_ID in (SELECT cvescv_ID  FROM dbo.CabVenta where cve_ID = @ComprobanteSDK_id ) and spvtco_Cod = 'RT'

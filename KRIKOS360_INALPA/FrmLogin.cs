@@ -26,7 +26,7 @@ namespace KRIKOS360_INALPA
             Resp = DialogResult.OK;
             try
             {
-                string filejsonEmpOrig = File.ReadAllText(@".\EmpresasOrig.json");
+                string filejsonEmpOrig = File.ReadAllText(@"C:\EmpresasOrig.json");
                 // Posicion de DataTable de Parametros DT[0] Nombre de la empresa - [1] Codigo de la Empresa - [2] Puesto de trabajo - [3] Punto de Venta  
                 DataTable dtEmpresaOrig = (DataTable)JsonConvert.DeserializeObject(value: filejsonEmpOrig, type: typeof(DataTable));
                 cbxEmpresasOrig.DataSource = dtEmpresaOrig;

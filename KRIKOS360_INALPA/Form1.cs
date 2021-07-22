@@ -171,6 +171,7 @@ namespace KRIKOS360_INALPA
                                 csvMemoria.Append(String.Format("{0};", krikos360_020.spv_Nro));
                                 csvMemoria.Append(String.Format("{0};", ""));
                                 csvMemoria.Append(String.Format("{0}", ""));
+                                
                                 csvMemoria.AppendLine();
                             }
                             
@@ -545,7 +546,7 @@ namespace KRIKOS360_INALPA
                 eFlexSDK_DatAdic.Nombre = "";
                 eFlexSDK_DatAdic.Valor = "";
                 
-                sComprobantes = sVentas.ListarComprobantes(MisFiltros, pToken).Where(x=> x.Comprobante_FechaEmision == DtpDesde.Value ).ToList();
+                sComprobantes = sVentas.ListarComprobantes(MisFiltros, pToken).Where(x=> x.Comprobante_FechaEmision.Date.Day == DtpDesde.Value.Day ).ToList();
                 
 
                 if (sComprobantes == null)
