@@ -44,6 +44,7 @@ namespace KRIKOS360_INALPA
             {
                 MessageBox.Show(ex.ToString());
             }
+            
         }  
 
         private void btnGenerar_Click(object sender, EventArgs e)
@@ -160,33 +161,34 @@ namespace KRIKOS360_INALPA
                         csvMemoria.AppendLine();
 
                         //Bloque 020: Comprobamte de Referencia 
-                                                
-                        foreach (KrikosComprobantesAsoc_Result krikos360_020 in oSBDABEJERMAN.KrikosComprobantesAsoc(CompCompleto.Comprobante_ID))
+
+                        foreach ( string krikos360_020 in oSBDABEJERMAN.KrikosComprobantesAsoc(CompCompleto.Comprobante_ID))
                         {
-                            if (krikos360_020.spvtco_TipoFijo == "RT")
+                            if (krikos360_020 != "")
                             {
                                 csvMemoria.Append(String.Format("{0};", "020"));
                                 csvMemoria.Append(String.Format("{0};", "RE"));
-                                csvMemoria.Append(String.Format("{0};", krikos360_020.spv_CodPvt));
-                                csvMemoria.Append(String.Format("{0};", krikos360_020.spv_Nro));
+                                csvMemoria.Append(String.Format("{0};", "00001"));
+                                csvMemoria.Append(String.Format("{0};", krikos360_020.Replace(" ", string.Empty)));
                                 csvMemoria.Append(String.Format("{0};", ""));
                                 csvMemoria.Append(String.Format("{0}", ""));
-                                
                                 csvMemoria.AppendLine();
                             }
-                            
+                            else
+                            {
+                                MessageBox.Show("El comprobante no tiene un remito asociado");
+                            }
                         }
+
                         if (krikos360_010.Comprobante_Mensaje != "")
                         {
-                            
-                                csvMemoria.Append(String.Format("{0};", "020"));
-                                csvMemoria.Append(String.Format("{0};", "PC"));
-                                csvMemoria.Append(String.Format("{0};", "00001"));
-                                csvMemoria.Append(String.Format("{0};", krikos360_010.Comprobante_Mensaje));
-                                csvMemoria.Append(String.Format("{0};", ""));
-                                csvMemoria.Append(String.Format("{0}", ""));
-                                csvMemoria.AppendLine();
-                            
+                            csvMemoria.Append(String.Format("{0};", "020"));
+                            csvMemoria.Append(String.Format("{0};", "PC"));
+                            csvMemoria.Append(String.Format("{0};", "00001"));
+                            csvMemoria.Append(String.Format("{0};", krikos360_010.Comprobante_Mensaje));
+                            csvMemoria.Append(String.Format("{0};", ""));
+                            csvMemoria.Append(String.Format("{0}", ""));
+                            csvMemoria.AppendLine();   
                         }
 
                         //Bloque Identificacion del Emisor de la Factura
@@ -291,6 +293,7 @@ namespace KRIKOS360_INALPA
                         //Fin del bloque 045 
 
                         double TotalIva = 0;
+                        double TotalRG = 0;
                         foreach (EFlexSDK_ItemVentas krikos360_Items in (CompCompleto.Comprobante_Items))
                         {
                             if (krikos360_Items.Item_ImporteIVAInscrip != null)
@@ -298,8 +301,15 @@ namespace KRIKOS360_INALPA
                                 TotalIva = TotalIva + Convert.ToDouble(krikos360_Items.Item_ImporteIVAInscrip);
                             }
                         }
-                           
-                        string Total = regex.Replace(TotalIva.ToString("0.00", System.Globalization.CultureInfo.GetCultureInfo("en-US")), "");
+                        foreach (EFlexSDK_RegEspecial krikos360_Rg in (CompCompleto.Comprobante_RegEspeciales))
+                        {
+                            if (krikos360_Rg != null)
+                            {
+                                TotalRG = TotalRG + Convert.ToDouble(krikos360_Rg.RegEspecial_Importe);
+                            }
+                        }
+
+                            string Total = regex.Replace(TotalIva.ToString("0.00", System.Globalization.CultureInfo.GetCultureInfo("en-US")), "");
                         
                         csvMemoria.Append(String.Format("{0};", "050"));
                         csvMemoria.Append(String.Format("{0};", "".PadLeft(15, '0'))); //05001
@@ -307,11 +317,11 @@ namespace KRIKOS360_INALPA
                         csvMemoria.Append(String.Format("{0};", "".PadLeft(15, '0'))); //05003
                         csvMemoria.Append(String.Format("{0};", regex.Replace(CompCompleto.Comprobante_ImporteTotal.ToString("0.00", System.Globalization.CultureInfo.GetCultureInfo("en-US")), "").PadLeft(15, '0'))); //05004
                         csvMemoria.Append(String.Format("{0};", "".PadLeft(15, '0'))); //05005
-                        csvMemoria.Append(String.Format("{0};", regex.Replace((CompCompleto.Comprobante_ImporteTotal - TotalIva).ToString("0.00", System.Globalization.CultureInfo.GetCultureInfo("en-US")), "").PadLeft(15, '0'))); //05006
+                        csvMemoria.Append(String.Format("{0};", regex.Replace((CompCompleto.Comprobante_ImporteTotal - TotalIva - TotalRG).ToString("0.00", System.Globalization.CultureInfo.GetCultureInfo("en-US")), "").PadLeft(15, '0'))); //05006
                         csvMemoria.Append(String.Format("{0};", Total.PadLeft(15, '0'))); //05007
                         csvMemoria.Append(String.Format("{0};", "".PadLeft(15, '0'))); //05008
                         csvMemoria.Append(String.Format("{0};", "".PadLeft(15, '0'))); //05009
-                        csvMemoria.Append(String.Format("{0};", "".PadLeft(15, '0'))); //05010
+                        csvMemoria.Append(String.Format("{0};", regex.Replace(TotalRG.ToString("0.00", System.Globalization.CultureInfo.GetCultureInfo("en-US")), "").PadLeft(15, '0'))); //05010
                         csvMemoria.Append(String.Format("{0};", "".PadLeft(15, '0'))); //05011
                         csvMemoria.Append(String.Format("{0};", "".PadLeft(15, '0'))); //05012
                         csvMemoria.Append(String.Format("{0};", "".PadLeft(15, '0'))); //05013
@@ -339,6 +349,17 @@ namespace KRIKOS360_INALPA
                         csvMemoria.AppendLine();
                         //Fin del bloque 060
 
+                        foreach (EFlexSDK_RegEspecial krikos360_Rg in (CompCompleto.Comprobante_RegEspeciales))
+                        {
+                            csvMemoria.Append(String.Format("{0};", "090"));
+                            csvMemoria.Append(String.Format("{0};", krikos360_Rg.RegEspecial_CodigoRegEspecial)); //09001
+                            csvMemoria.Append(String.Format("{0};", regex.Replace(((100 / krikos360_Rg.RegEspecial_BaseCalculo) * krikos360_Rg.RegEspecial_Importe).ToString("0.00", System.Globalization.CultureInfo.GetCultureInfo("en-US")), "").PadLeft(5, '0')));//09002
+                            csvMemoria.Append(String.Format("{0};", regex.Replace((krikos360_Rg.RegEspecial_BaseCalculo).ToString("0.00", System.Globalization.CultureInfo.GetCultureInfo("en-US")), "").PadLeft(15, '0')));//09003
+                            csvMemoria.Append(String.Format("{0};", regex.Replace((krikos360_Rg.RegEspecial_Importe).ToString("0.00", System.Globalization.CultureInfo.GetCultureInfo("en-US")), "").PadLeft(15, '0')));//09004
+                            csvMemoria.Append(String.Format("{0};", "C05"));//09005
+                        }
+                        csvMemoria.AppendLine();
+                        //Fin del bloque 090
                         foreach (EFlexSDK_ItemVentas krikos360_Items in (CompCompleto.Comprobante_Items))
                         {
                             if (krikos360_Items.Item_Tipo == "A")
@@ -526,7 +547,26 @@ namespace KRIKOS360_INALPA
                     eFlexSDK_Filtro_Comp.Enlazada = false;
                     MisFiltros.Add(eFlexSDK_Filtro_Comp);
                 }
-              
+
+                if (textBox1.Text != "")
+                {
+                    int nro =0;
+                    if (int.TryParse(textBox1.Text , out nro) == true)
+                    {
+                        EFlexSDK_FiltroComprobantes eFlexSDK_Filtro_Comp = new EFlexSDK_FiltroComprobantes();
+                        eFlexSDK_Filtro_Comp.Operacion = "Y";
+                        eFlexSDK_Filtro_Comp.Campo = "Comprobante_Numero";
+                        eFlexSDK_Filtro_Comp.Accion = "IGUAL";
+                        eFlexSDK_Filtro_Comp.Valor = nro.ToString().PadLeft(8,'0');
+                        eFlexSDK_Filtro_Comp.Enlazada = false;
+                        MisFiltros.Add(eFlexSDK_Filtro_Comp);
+                    }
+                    else
+                    {
+                        MessageBox.Show("El numero del comprobante no es valido");
+                    }
+                }
+
                 EFlexSDK_FiltroComprobantes eFlexSDK_Filtro_Emp = new EFlexSDK_FiltroComprobantes();
                 eFlexSDK_Filtro_Emp.Operacion = "Y";
                 eFlexSDK_Filtro_Emp.Campo = "Cliente_Codigo";

@@ -109,9 +109,6 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="KrikosComprobantesAsoc_Result.cs">
-      <DependentUpon>Bejerman.tt</DependentUpon>
-    </Compile>
     <Compile Include="MODELO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

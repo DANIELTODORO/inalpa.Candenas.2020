@@ -27,13 +27,14 @@ namespace KRIKOS360_INALPA
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual ObjectResult<KrikosComprobantesAsoc_Result> KrikosComprobantesAsoc(Nullable<int> comprobanteSDK_id)
+    
+        public virtual ObjectResult<string> KrikosComprobantesAsoc(Nullable<int> comprobanteSDK_id)
         {
             var comprobanteSDK_idParameter = comprobanteSDK_id.HasValue ?
                 new ObjectParameter("ComprobanteSDK_id", comprobanteSDK_id) :
                 new ObjectParameter("ComprobanteSDK_id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KrikosComprobantesAsoc_Result>("KrikosComprobantesAsoc", comprobanteSDK_idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("KrikosComprobantesAsoc", comprobanteSDK_idParameter);
         }
     }
 }

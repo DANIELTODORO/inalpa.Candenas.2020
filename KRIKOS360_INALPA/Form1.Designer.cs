@@ -49,6 +49,8 @@
             this.btnCancelarEmp = new System.Windows.Forms.Button();
             this.DtpDesde = new System.Windows.Forms.DateTimePicker();
             this.btnFiltrar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.gbxExportar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.gbxFiltrosComp.SuspendLayout();
@@ -75,7 +77,7 @@
             // 
             this.rbWalmart.AutoSize = true;
             this.rbWalmart.Checked = true;
-            this.rbWalmart.Location = new System.Drawing.Point(402, 40);
+            this.rbWalmart.Location = new System.Drawing.Point(518, 21);
             this.rbWalmart.Name = "rbWalmart";
             this.rbWalmart.Size = new System.Drawing.Size(64, 17);
             this.rbWalmart.TabIndex = 6;
@@ -86,7 +88,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(481, 40);
+            this.radioButton2.Location = new System.Drawing.Point(518, 41);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(85, 17);
             this.radioButton2.TabIndex = 7;
@@ -172,6 +174,8 @@
             // 
             // gbxFiltrosComp
             // 
+            this.gbxFiltrosComp.Controls.Add(this.textBox1);
+            this.gbxFiltrosComp.Controls.Add(this.label3);
             this.gbxFiltrosComp.Controls.Add(this.CbxComprobantes);
             this.gbxFiltrosComp.Controls.Add(this.label1);
             this.gbxFiltrosComp.Controls.Add(this.label2);
@@ -195,7 +199,7 @@
             "FC",
             "FA",
             "FCC"});
-            this.CbxComprobantes.Location = new System.Drawing.Point(209, 38);
+            this.CbxComprobantes.Location = new System.Drawing.Point(192, 38);
             this.CbxComprobantes.Name = "CbxComprobantes";
             this.CbxComprobantes.Size = new System.Drawing.Size(171, 21);
             this.CbxComprobantes.TabIndex = 14;
@@ -203,7 +207,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(206, 19);
+            this.label1.Location = new System.Drawing.Point(189, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 13;
@@ -212,7 +216,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(204, 42);
+            this.label2.Location = new System.Drawing.Point(187, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 12;
@@ -261,12 +265,28 @@
             this.btnFiltrar.UseVisualStyleBackColor = false;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(372, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Nro Comprobantes:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(375, 38);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(119, 20);
+            this.textBox1.TabIndex = 16;
+            // 
             // FrmModulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(708, 440);
+            this.ClientSize = new System.Drawing.Size(710, 440);
             this.Controls.Add(this.gbxExportar);
             this.Controls.Add(this.dgvDatos);
             this.Controls.Add(this.gbxFiltrosComp);
@@ -302,6 +322,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BtnCancelar;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
     }
 }
 
